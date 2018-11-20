@@ -1,0 +1,20 @@
+version: '3'
+services:
+  menucontrol:
+    build: ./MenuItemControl
+  menurest:
+    build: ./MenuItemRest
+  ordercontrol:
+    build: ./OrderItemControl
+  orderrest:
+    build: ./OrderItemRest
+  frontend:
+    build: ./frontend
+    volumes:
+     - ./frontend:/src/
+  nginx:
+    build: ./nginx
+    ports:
+    - 80:80
+  mongo:
+    image: mongo
